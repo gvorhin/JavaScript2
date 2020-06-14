@@ -1,0 +1,20 @@
+.goods-item {
+    display: inline-block;
+    width: 100px;
+    border: 2px solid #000;
+    margin-left: 15px;
+    text-align: center;
+}
+header {
+    border: 2px solid black;
+    padding: 10px;
+}
+
+button.cart-button {
+    margin-left: 95%;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+main{
+    margin-top: 10px;
+}
