@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>eShop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <input type="text" class="goods-search" v-model="searchLine" />
+      <button class="search-button" type="button" v-on:click="filterGoods">Искать</button>
+      <button class="cart-button" type="button" v-on:click="showBasket">Корзина</button>
+    </header>
+    <main>
+      <div class="goods-list" v-if="visibleBasket == false">
+        <p>Товары</p>
+        <div class="goods-item" v-for="good in filteredGoods" data-id="{{good.id_product}}">
+          <h3>{{ good.product_name }}</h3>
+          <p>{{ good.price }}</p>
+          <button v-on:click="clickBuy(good.id_product)">Купить</button>
+        </div>
+      </div>
+      <div class="basket-list" v-else-if="visibleBasket && arrLength()">
+        <p>Корзина</p>
+        <div class="basket-item" v-for="good in basketGoods" data-id="{{good.id_product}}">
+          <h3>{{ good.product_name }}</h3>
+          <p>{{ good.price }}</p>
+          <button v-on:click="clickDel(good.id_product)">Удалить</button>
+        </div>
+      </div>
+      <div class="basket-death-end" v-else>
+        <p>Нет данных</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
