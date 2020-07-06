@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>eShop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <buttons @filter="filterGoods" @basket="showBasket"> </buttons>
+        </header>
+        <main>
+            <div class="goods-list" v-if="visibleBasket == false">
+                <p>Товары</p>
+                <goods-list :goods="filteredGoods"></goods-list>
+            </div>
+
+            <div class="basket-list " v-else-if="visibleBasket && arrLength() ">
+                <p>Корзина</p>
+                <basket-list :basket-goods="basketGoods"></basket-list>
+            </div>
+            <div class="basket-death-end " v-else>
+                <p>Нет данных</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js "></script>
+    <script src="script.js "></script>
+</body>
+
+</html>
